@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  PDF To Txt 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> PDF To Txt</h1>
+
+<div class="container py-5">
+<form method="post" action="/pdf_to_txt" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class="form-group">
+    <label>Select PDF File</label>
+    <input type="file" onchange="readURL(this);" class="input1" name="pdf" required>
+    <center>
+<button type="submit" class="btn btn-primary px-5 py-2 my-5">Create .txt FIle</button>
+</center>
+</form>    
+
+{% if f %}
+<center>
+<h5> Your Text File Here </h5>
+<a href="{% static 'yourtxt.txt' %}" download> Download </a>
+</center>
+{% endif %}
+  </div>
+</div>
+
+
+{% endblock body %}
