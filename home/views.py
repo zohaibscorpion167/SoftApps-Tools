@@ -94,7 +94,7 @@ def download_complete(request, res):
     global url_yt
     homedir = os.path.expanduser("~")
     dirs = homedir + '/Downloads'
-    print(f'DIRECT :', f'{dirs}/Downloads')
+    # print(f'DIRECT :', f'{dirs}/Downloads')
     if request.method == "POST":
         yt = YouTube(url_yt)
         yt.streams.get_by_resolution(res).download(homedir + '/Downloads')
