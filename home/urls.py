@@ -32,6 +32,7 @@ urlpatterns = [
     path('iplocation', views.ipcheck, name='iplocation'),
     path('whoisdomain', views.domain_check, name='whoisdomain'),
     path('img_to_text', views.img_to_text, name='img_to_text'),
+    path('pdf_to_txt', views.pdf_to_txt, name='pdf_to_txt'),
     
 
 ]
