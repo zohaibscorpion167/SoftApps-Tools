@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+
+{% block title %}
+
+  Internet Speed Test 
+
+{% endblock title %}
+
+{% block body %}
+
+
+  <h1 class="hello"> Internet Speed Test</h1>
+
+  <div class="container py-5">
+<center>
+<form action="speed_test_result" method="post">
+    
+
+  <button type="submit" class="btn btn-primary" name="speed_test" style="border-radius:100%;font-size: 25px;padding: 50px;text-align:top;" onclick="myFunction()">Start</button>
+  
+  {% csrf_token %}
+</form>
+
+
+<br>
+<div id="myDIV" style="display:none;">
+<div id"j" align="center"></div>
+<div id="logos">	<span class="speedometer"></span>
+  <span class="needle"></span>
+</center>
+</div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+{% endblock body %}
+

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  Image To Text 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> Image To Text</h1>
+
+<div class="container py-5">
+<form method="post" action="/img_to_text" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class="form-group">
+    <label>Select Image</label>
+    <input type="file" onchange="readURL(this);" class="input1" name="img" required>
+    <center>
+<img id="blah" class="img1" src="http://placehold.it/280" alt="your image"  /><h6>Your Image Here</h6>
+<button type="submit" class="btn btn-primary px-5 py-2 my-5">Fetch</button>
+</center>
+</form>
+  </div>
+  
+  
+  
+</div>
+
+
+<div class="container" style="margin-bottom:100px;">
+
+<textarea rows="12" cols="122" id="Input" name="abc"> {{text}}</textarea><h6> {{length}} Characters | {{words}} Words
+
+<button class="btn btn-outline-primary" onclick="myFunction()" style="margin-left:10px; padding:3px;" >Copy Text</button></h6>
+
+
+{% if words == 0 %}
+
+<p style="background-color:#F97878; padding:10px; margin:20px 0px 60px 0px;">Please select an Appropriate Image</p>
+
+{% endif %}
+    
+
+</div>
+
+</div>
+
+<script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("Input");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+}
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+{% endblock body %}

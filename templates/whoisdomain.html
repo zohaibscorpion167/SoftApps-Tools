@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  Whois Domain 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> Check Domain Details</h1>
+
+<div class="container py-5">
+<form method="post" action="/whoisdomain">
+{% csrf_token %}
+  <div class="form-group">
+    <center><h1> Enter Domain</h1></center>
+    <input type="text" class="form-control"  name="dom" placeholder="Enter Domain" required>
+  </div>
+  <center>
+  <button type="submit" class="btn btn-primary">Fetch</button>
+  </center>
+</div>
+
+{% if dom %}
+<div class="container">
+    
+    <h2 style="margin-left:25%">Domain {{domain_name}} details:</h2><br>
+    <h4 style="margin-left:30%">
+    Domain Name: {{domain_name}}<br>
+    Date of Creation: {{creation_date}}<br>
+    Expire Date: {{expiration_date}}<br>
+    Hosted By: {{registrar}}<br>
+    </h4> 
+    
+
+</div>
+{% endif %}
+</div>
+{% endblock body %}

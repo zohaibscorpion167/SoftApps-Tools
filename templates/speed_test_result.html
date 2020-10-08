@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  Your Internet Speed Test Result 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> Your Internet Speed Test Result</h1>
+
+<div>
+<center><h2 class="btn btn-success text-center" style="border-radius:10%;font-size: 25px;padding: 50px;text-align:top; text-align:center; align-items:center;"> Dowloading Speed <br><br> {{download}} Mbps</h2>
+
+<h2 class="btn btn-success text-center" style="border-radius:10%;font-size: 25px;padding: 50px;text-align:top; text-align:center; align-items:center;">Uploading Speed <br><br> {{upload}} Mbps</h2>
+
+<h2 class="btn btn-success text-center" style="border-radius:10%;font-size: 25px;padding: 50px;text-align:top; text-align:center; align-items:center;">Internet Ping <br><br> {{ping}} ms</h2>
+</center>
+
+</div>
+
+{% endblock body %}

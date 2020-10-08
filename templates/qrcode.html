@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  QR Code 
+
+{% endblock title %}
+
+
+{% block body %}
+
+{% comment %} <div class="container-fluid px-0">
+      <img src="https://source.unsplash.com/1200x400/?code" class="d-block w-100 mx-0" alt="...">
+</div> {% endcomment %}
+
+  <h1 class="hello"> Make your QR Code</h1>
+
+  <div class="container py-5">
+<form method="post" action="">
+{% csrf_token %}
+  <div class="form-group">
+    <center><h1> Enter URL or Text</h1></center>
+    <input type="text" class="form-control"  name="data" placeholder="Enter URL or Text" required>
+  </div>
+  <center>
+  <button type="submit" class="btn btn-primary">Generate</button>
+  </center>
+</div>
+
+<div id="">
+  {% if data %}
+    <div id="heading">
+    <center><h2>Your QR Code is here:</h2><br> 
+    <img src="{% static 'qrcode.png' %}" alt="abc"></center>
+    <center>
+    <a href="{% static 'qrcode.png' %}" download>
+         <button class="btn btn-success" type="button">Download</button> 
+    </center>
+    </div>
+  {% endif %}
+
+</div>
+
+{% endblock body %}

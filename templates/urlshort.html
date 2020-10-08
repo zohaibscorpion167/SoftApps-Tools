@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  URL Shortener 
+
+{% endblock title %}
+
+
+{% block body %}
+
+{% comment %} <div class="container-fluid px-0">
+      <img src="https://source.unsplash.com/1200x400/?code" class="d-block w-100 mx-0" alt="...">
+</div> {% endcomment %}
+
+  <h1 class="hello"> URL Shortener</h1>
+
+  <div class="container py-5">
+<form method="post" action="">
+{% csrf_token %}
+  <div class="form-group">
+    <center><h1> Enter URL</h1></center>
+    <input type="text" class="form-control"  name="url" placeholder="Enter URL" required>
+  </div>
+  <center>
+  <button type="submit" class="btn btn-primary">Short</button>
+  </center>
+</div>
+
+<div class="container">
+{% if url %}
+    <div id="heading">
+    <center><h2>Shortend URL is here:</h2><br> 
+    <input type="text" value="{{url}}" id="myInput" class="form-control" style="width:30%;">
+    <br>
+    <button class="btn btn-outline-primary" onclick="myFunction()">Copy URL</button>
+    </div>
+
+{% endif %}
+
+</div>
+<script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+</script>
+{% endblock body %}

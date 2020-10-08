@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  Youtube Video Downloader 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> Youtube Video Downloader</h1>
+
+  <div class="container py-5">
+<form method="get" action="/download">
+{% csrf_token %}
+  <div class="form-group">
+    <center><h1> Enter The URL of YouTube Video</h1></center>
+    <input type="text" class="form-control"  name="url_yt" placeholder="Enter URL or Text" required>
+  </div>
+  <center>
+  <button type="submit" class="btn btn-primary">Fetch</button>
+  </center>
+</div>
+
+
+</div>
+
+{% endblock body %}

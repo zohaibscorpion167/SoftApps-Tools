@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  IP Address Details 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello">IP Address Details</h1>
+
+<div class="container" style="width: 800px;">
+
+<h4>
+Your Hostname: {{hostname}}<br>
+Your Computer IP Address: {{ip_address}}<br>
+Your Public IP Address: {{IP}}<br>
+Your Country: {{country}}<br>
+Your Region: {{region}}<br>
+Your City: {{city}}<br>
+Your Lat,Long: {{location}}<br>
+Your Time Zone: {{timezone}}<br>
+Your Postal Code: {{postal}}<br>
+Your ISP: {{org}}
+</h4>
+<!--Google map-->
+<div id="map-container-google-3" style="height: 300px;text-align:center;" >
+  <iframe src="https://maps.google.com/maps?q={{city}}&t=k&z=10&ie=UTF8&iwloc=addr&output=embed" frameborder="0"style="border:0; height: 250px;" allowfullscreen></iframe>
+</div>
+</div>
+
+</div>
+
+{% endblock body %}
