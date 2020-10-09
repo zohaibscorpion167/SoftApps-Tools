@@ -5,7 +5,6 @@ from home.models import ImageUpload
 from django.contrib import messages
 from qrcode import *
 import pyshorteners
-from pytube import YouTube
 import os
 import speedtest
 import math
@@ -67,40 +66,6 @@ def contact(request):
         messages.success(request, 'Form has been Submitted')
     return render(request, 'contact.html')
 
-url_yt = ''
-
-def ytb_down(request):
-    return render(request, 'ytb_main.html')
-
-def yt_download(request):
-    global url_yt
-    url_yt = request.GET.get('url_yt')
-    #created object for know which video download ..
-    try:
-        obj = YouTube(url_yt)
-        resolutions = []
-        strm_all = obj.streams.filter(progressive=True, file_extension='mp4')
-        for i in strm_all:
-            resolutions.append(i.resolution)
-            resolutions = list(dict.fromkeys(resolutions))
-            embed_link = url_yt.replace("watch?v=", "embed/")
-            return render(request, 'yt_download.html', {'rsl': resolutions, 'embd': embed_link, 'url_yt': url_yt})
-    except:
-        return render(request, 'contact.html')
-
-
-
-def download_complete(request, res):
-    global url_yt
-    homedir = os.path.expanduser("~")
-    dirs = homedir + '/Downloads'
-    # print(f'DIRECT :', f'{dirs}/Downloads')
-    if request.method == "POST":
-        yt = YouTube(url_yt)
-        yt.streams.get_by_resolution(res).download(homedir + '/Downloads')
-        return render(request, 'download_complete.html')
-    else:
-        return render(request, 'index.html')
 
 def speed_test(request):
     if request.method == "POST":

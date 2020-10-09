@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'Logo.png' %}"/>
@@ -33,9 +35,6 @@
         <a class="nav-link {% if request.path == '/urlshort' %}active{% endif %}" href="/urlshort">URL Shortener</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if request.path == '/yt_download' %}active{% endif %}" href="/yt_download">YouTube Downloader</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link {% if request.path == '/speed_test' %}active{% endif %}" href="/speed_test">Internet Speed Test</a>
       </li>
       <li class="nav-item">
@@ -60,13 +59,48 @@
 
 
 {% block body %}{% endblock body %}
-
 <!-- Footer -->
-<footer class="page-footer font-small blue" style="background-color:lightblue;">
+<footer class="page-footer font-small stylish-color-dark pt-4" >
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Powered By:
-    <a href="https://softapps.io/"> SoftApps.io</a>
+<div class="container-social">
+<h3 class="followus">Follow us </h3>
+        <div class="social-buttons">        
+        <!-- facebook  Button -->
+                <a href="http://www.facebook.com" target="blank" class="social-margin"> 
+                  <div class="social-icon facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i> 
+                  </div>
+                </a>
+                <!-- pinterest Button -->
+                <a href="https://pinterest.com/" target="blank"  class="social-margin">
+                  <div class="social-icon pinterest">
+                    <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                  </div>
+                </a>
+                <!-- LinkedIn Button -->
+                <a href="http://linkedin.com/" class="social-margin" target="blank">
+                  <div class="social-icon linkedin">
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                  </div> 
+                </a>
+              <!-- Github Button -->
+                <a href="https://github.com/"  target="blank"  class="social-margin">
+                  <div class="social-icon github">
+                    <i class="fa fa-github-alt" aria-hidden="true"></i>
+                  </div>
+                </a>
+          <!-- TwitterButton -->
+                <a href="http://twitter.com/" target="blank" class="social-margin">
+                  <div class="social-icon twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </div> 
+                </a>
+        </div>
+        </div>
+
+  <!-- Copyright --> 
+  <div class="footer-copyright text-center py-4" style="background-color:#22D670;" >© 2020 Powered By:
+    <a href="https://softapps.io/" style="color:red;"> SoftApps.io</a>
   </div>
   <!-- Copyright -->
 
@@ -78,3 +112,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
 </html>
+
+<!-- CopyRight
+
+@@@@@@@@@@@------------ Design & Developed by Muhammad Zohaib ------------@@@@@@@@@@@
+@@@@@@@@@@@------------------- fb.com/zohaib.scorpio ---------------------@@@@@@@@@@@
+@@@@@@@@@@@------------------- Powered By SoftApps.io --------------------@@@@@@@@@@@
+
+-->
