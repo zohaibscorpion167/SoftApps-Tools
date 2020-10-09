@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+  Sign up 
+
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container my-5" style="width:40%;">
+<form action="/signup" method="post">
+{% csrf_token %}
+  <div class="form-group" > 
+    <label for="name">Name<span style="color:red;">*</span></label>
+      <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+    <label for="uname">User Name<span style="color:red;">*</span></label>
+      <input type="text" class="form-control" placeholder="User Name" id="uname" name="uname" required>
+    </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Email address <span style="color:red;">*</span></label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="Password1">Password<span style="color:red;">*</span></label>
+    <input type="password" class="form-control" id="Password1" name="Password1" required>
+  </div>
+  <div class="form-group">
+    <label for="Password1">Confirm Password <span style="color:red;">*</span></label>
+    <input type="password" class="form-control" id="Password2" name="
+    Password2" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
+
+</div>
+{% endblock body %}

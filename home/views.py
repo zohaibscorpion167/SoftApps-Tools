@@ -1,5 +1,7 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
+from django.contrib.auth import authenticate, login , logout 
 from datetime import datetime
+from django.contrib.auth.models import User
 from home.models import Contact
 from home.models import ImageUpload
 from django.contrib import messages
@@ -151,4 +153,27 @@ def pdf_to_txt(request):
         return render(request, 'pdf_to_txt.html',{'f':f})
     else:
         return render(request, 'pdf_to_txt.html')
+
+
+def signup(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        username = request.POST["uname"]
+        email = request.POST["exampleInputEmail1"]
+        password = request.POST["Password1"]
+        myuser = User.objects.create_user(username,email,password)
+        myuser.first_name =  name
+        myuser.save()
+        return redirect('login')
+
+    else:
+        return render(request, 'signup.html')
+
+
+def handlelogin(request):
+    if request.method == "POST":
+        email = request.POST["exampleInputEmail1"]
+        password = request.POST["Password1"]
+    return render(request, 'login.html')
+
 
