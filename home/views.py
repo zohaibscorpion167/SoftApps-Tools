@@ -1,7 +1,9 @@
 from django.shortcuts import render,HttpResponse,redirect
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login , logout 
 from datetime import datetime
 from django.contrib.auth.models import User
+from .forms import UserForm
 from home.models import Contact
 from home.models import ImageUpload
 from django.contrib import messages
@@ -32,7 +34,7 @@ def index(request):
     context = {"home": "active"}
     return render(request, 'index.html', context)
 
-def qrcode(request):
+def qrcodes(request):
     global data
     if request.method == 'POST':
         data = request.POST['data']
@@ -157,23 +159,44 @@ def pdf_to_txt(request):
 
 def signup(request):
     if request.method == "POST":
-        name = request.POST["name"]
-        username = request.POST["uname"]
-        email = request.POST["exampleInputEmail1"]
-        password = request.POST["Password1"]
-        myuser = User.objects.create_user(username,email,password)
-        myuser.first_name =  name
-        myuser.save()
-        return redirect('login')
-
+        form1 = UserForm(request.POST)
+        if form1.is_valid():
+            username = form1.cleaned_data['username']
+            first_name = form1.cleaned_data['first_name']
+            last_name = form1.cleaned_data['last_name']
+            email = form1.cleaned_data['email']
+            password = form1.cleaned_data['password']
+            
+            User.objects.create_user(username=username,email=email, first_name=first_name, last_name=last_name, password=password,)
+            return HttpResponseRedirect('/login')
     else:
-        return render(request, 'signup.html')
+        form1 = UserForm()
+    return render(request, 'signup.html',{'frm':form1})
+    
 
 
 def handlelogin(request):
     if request.method == "POST":
-        email = request.POST["exampleInputEmail1"]
-        password = request.POST["Password1"]
+        username = request.POST['username']
+        loginpassword = request.POST['loginpass']
+        
+        user = authenticate(username=username, password=loginpassword)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else: 
+            messages.error(request, "Credentials do not match")
+            return redirect('login')
     return render(request, 'login.html')
+
+    
+
+def handlelogout(request):
+    logout(request)
+    return redirect('login')
+
+
+        
 
 

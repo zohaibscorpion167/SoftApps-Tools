@@ -19,7 +19,7 @@ from home import views
 
 urlpatterns = [
     path("", views.index, name='home'),
-    path("qrcode", views.qrcode, name='qrcode'),
+    path("qrcode", views.qrcodes, name='qrcode'),
     path("services", views.services, name='services'),
     path("contact", views.contact, name='contact'),
     path("urlshort", views.urlShort, name='urlshort'),
@@ -31,7 +31,9 @@ urlpatterns = [
     path('img_to_text', views.img_to_text, name='img_to_text'),
     path('pdf_to_txt', views.pdf_to_txt, name='pdf_to_txt'),
     path('signup', views.signup, name='signup'),
-    path('login', views.login, name='login'),
+    path('login', views.handlelogin, name='login'),
+    path('logout', views.handlelogout, name='logout'),
+
 
 
     

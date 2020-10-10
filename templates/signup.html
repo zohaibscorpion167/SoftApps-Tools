@@ -11,33 +11,43 @@
 {% block body %}
 
 <div class="container my-5" style="width:40%;">
-<form action="/signup" method="post">
+<form action="" method="POST">
 {% csrf_token %}
+
   <div class="form-group" > 
-    <label for="name">Name<span style="color:red;">*</span></label>
-      <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
-      </div>
+    <label>Username<span style="color:red;">*</span></label>
+    {{ frm.username }}    
+    {{ frm.username.errors }}
+  </div>
       <div class="form-group">
-    <label for="uname">User Name<span style="color:red;">*</span></label>
-      <input type="text" class="form-control" placeholder="User Name" id="uname" name="uname" required>
+    <label>First Name<span style="color:red;">*</span></label>
+          {{ frm.first_name }}    
+    </div>
+     <div class="form-group">
+    <label>Last Name<span style="color:red;">*</span></label>
+          {{ frm.last_name }}    
     </div>
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address <span style="color:red;">*</span></label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="exampleInputEmail1" required>
+    <label >Email ID <span style="color:red;">*</span></label>
+          {{ frm.email }}    
+          {{ frm.email.errors }}
+
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
-    <label for="Password1">Password<span style="color:red;">*</span></label>
-    <input type="password" class="form-control" id="Password1" name="Password1" required>
+    <label >Password<span style="color:red;">*</span></label>
+          {{ frm.password }}
+          {{ frm.password.errors }}
+
+
   </div>
   <div class="form-group">
-    <label for="Password1">Confirm Password <span style="color:red;">*</span></label>
-    <input type="password" class="form-control" id="Password2" name="
-    Password2" required>
-  </div>
+    <label >Confirm Password <span style="color:red;">*</span></label>
+      {{ frm.confirm_password }}  
+      {{ frm.confirm_password.errors }}
 
+  </div>
   <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
-
 </div>
 {% endblock body %}
