@@ -39,7 +39,7 @@ class UserForm(forms.Form):
         # check for min length
         min_length = 8
         if len(password) <= min_length:
-            msg = "Password must be at least %s characters long." %(min_length)
+            msg = "Password must be at least %s characters long" %(min_length)
             self.add_error('password', msg)
 
 
@@ -48,7 +48,7 @@ class UserForm(forms.Form):
 
         if password and password_confirm:
             if password != password_confirm:
-                msg = "The two password fields must match."
+                msg = "The two password fields must match"
                 self.add_error('confirm_password', msg)
         return cleaned_data
         

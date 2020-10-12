@@ -22,23 +22,34 @@
     <input type="text" class="form-control"  name="dom" placeholder="Enter Domain" required>
   </div>
   <center>
-  <button type="submit" class="btn btn-primary">Fetch</button>
+  <button type="submit" class="btn login_btn">Fetch</button>
   </center>
 </div>
 
 {% if dom %}
-<div class="container">
+<div class="container py-5 px-5" style="width:50%;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">
     
-    <h2 style="margin-left:25%">Domain {{domain_name}} details:</h2><br>
-    <h4 style="margin-left:30%">
-    Domain Name: {{domain_name}}<br>
+    <h2 style="">Domain {{dom}} details:</h2><br>
+    <h4 style="">
+    Domain Name: {{dom}}<br>
     Date of Creation: {{creation_date}}<br>
     Expire Date: {{expiration_date}}<br>
     Hosted By: {{registrar}}<br>
     </h4> 
-    
 
 </div>
+
+{% endif %}
+<div class="container">
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show my-5" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+  {% endfor %}
 {% endif %}
 </div>
 {% endblock body %}

@@ -17,7 +17,7 @@
 
   <h1 class="hello"> Make your QR Code</h1>
 
-  <div class="container py-5">
+  <div class="container py-5" style="width:60%;">
 <form method="post" action="">
 {% csrf_token %}
   <div class="form-group">
@@ -25,7 +25,7 @@
     <input type="text" class="form-control"  name="data" placeholder="Enter URL or Text" required>
   </div>
   <center>
-  <button type="submit" class="btn btn-primary">Generate</button>
+  <button type="submit" class="btn login_btn">Generate</button>
   </center>
 </div>
 

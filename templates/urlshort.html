@@ -11,13 +11,9 @@
 
 {% block body %}
 
-{% comment %} <div class="container-fluid px-0">
-      <img src="https://source.unsplash.com/1200x400/?code" class="d-block w-100 mx-0" alt="...">
-</div> {% endcomment %}
-
   <h1 class="hello"> URL Shortener</h1>
 
-  <div class="container py-5">
+  <div class="container py-5" style="width:60%;">
 <form method="post" action="">
 {% csrf_token %}
   <div class="form-group">
@@ -25,7 +21,7 @@
     <input type="text" class="form-control"  name="url" placeholder="Enter URL" required>
   </div>
   <center>
-  <button type="submit" class="btn btn-primary">Short</button>
+  <button type="submit" class="btn login_btn">Short</button>
   </form>
   </center>
 </div>

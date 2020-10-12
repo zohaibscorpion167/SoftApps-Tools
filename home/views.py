@@ -56,9 +56,6 @@ def urlShort(request):
         return render(request, 'urlshort.html')
 
 
-def services(request):
-    return render(request, 'services.html')
-
 def contact(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -107,15 +104,17 @@ def ipcheck(request):
 
 def domain_check(request):
     if request.method == "POST":
-        dom = request.POST['dom']
-        dom=whois.whois(dom)
-        context={'dom':dom,'domain_name':dom["domain_name"][1],
-        'creation_date':dom["creation_date"],
-        'expiration_date':dom["expiration_date"],
-        'registrar':dom["registrar"]}
-        return render(request, 'whoisdomain.html',context)
-    else:
-        return render(request, 'whoisdomain.html')
+        try:
+            domainn = request.POST['dom']
+            dom=whois.whois(domainn)
+            context={'dom':domainn,'domain_name':dom["domain_name"][1],
+            'creation_date':dom["creation_date"],
+            'expiration_date':dom["expiration_date"],
+            'registrar':dom["registrar"]}
+            return render(request, 'whoisdomain.html',context)
+        except TypeError:
+            messages.error(request, 'Please Enter a Valid Domain')
+    return render(request, 'whoisdomain.html')
 
 
 def img_to_text(request):
@@ -186,8 +185,7 @@ def handlelogin(request):
             login(request, user)
             return redirect('/')
         else: 
-            messages.error(request, "Credentials do not match")
-            return redirect('login')
+            messages.error(request, "Credentials do not match, Try again")
     return render(request, 'login.html')
 
     

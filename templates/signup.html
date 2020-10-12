@@ -10,44 +10,78 @@
 
 {% block body %}
 
-<div class="container my-5" style="width:40%;">
-<form action="" method="POST">
-{% csrf_token %}
-
-  <div class="form-group" > 
-    <label>Username<span style="color:red;">*</span></label>
-    {{ frm.username }}    
-    {{ frm.username.errors }}
-  </div>
-      <div class="form-group">
-    <label>First Name<span style="color:red;">*</span></label>
-          {{ frm.first_name }}    
-    </div>
-     <div class="form-group">
-    <label>Last Name<span style="color:red;">*</span></label>
-          {{ frm.last_name }}    
-    </div>
-    <div class="form-group">
-    <label >Email ID <span style="color:red;">*</span></label>
-          {{ frm.email }}    
+<div class="form-body ">
+<div class="container-form">
+	<div class="d-flex justify-content-center h-100 ">
+		<div class="card-sign ">
+			<div class="card-header ">
+				<h3  class="d-flex justify-content-center">Signup</h3>
+      </div>
+			<div class="card-body">
+				<form action="" method="POST">
+          {% csrf_token %}
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						{{ frm.username }}    
+					</div>
+          <div>
+             {{ frm.username.errors }}
+             </div>
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						  {{ frm.first_name }}    
+					</div>
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						  {{ frm.last_name }}    
+					</div>
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+						</div>
+						  {{ frm.email }}    
+					</div>
+          <div>
           {{ frm.email.errors }}
-
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label >Password<span style="color:red;">*</span></label>
-          {{ frm.password }}
-          {{ frm.password.errors }}
-
-
-  </div>
-  <div class="form-group">
-    <label >Confirm Password <span style="color:red;">*</span></label>
-      {{ frm.confirm_password }}  
-      {{ frm.confirm_password.errors }}
-
-  </div>
-  <button type="submit" class="btn btn-primary">Sign Up</button>
-</form>
+          </div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						{{ frm.password }}
+					</div>
+          <div>
+            {{ frm.password.errors }}
+          </div>
+          <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						{{ frm.confirm_password }}
+					</div>
+          <div>
+            {{ frm.confirm_password.errors }}
+          </div>
+					<div class="form-group">
+						<input type="submit" value="Sign up" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Already have an account?<a href="/login">Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+</div>
+</div> 
+
 {% endblock body %}

@@ -1,5 +1,5 @@
 .hello{
-    background-color: aqua;
+    background-color: #db5e5ea2;
     text-align: center ;
     align-items: center ;
     margin: 50px;
@@ -109,7 +109,7 @@ html,body{
   padding-top:10px;
   min-height:100%;
   text-align:center;
-  background: linear-gradient(0deg, rgb(34, 214, 112) 0%, rgba(45,77,253,1) 100%);
+  background: linear-gradient(0deg, #a92323, #641b1b);
   
 }
 
@@ -252,3 +252,96 @@ a:active {
   color: white;
   font-size: 42px;
 }
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+.form-body{
+  background-image: url('/static/backdrop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80%;
+  font-family: 'Numans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  
+
+  }
+
+.container-form{
+height: 100%;
+align-content: center;
+}
+
+.card-log{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 450px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+.card-sign{
+  height: 500px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 450px;
+  background-color: rgba(0,0,0,0.5) !important;
+  }
+
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: white;
+background-color: #641b1b;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+.errorlist
+    {
+        color:white;
+    }
