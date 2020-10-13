@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+  Web Technology 
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+  <h1 class="hello"> Check Website Technology</h1>
+
+  <div class="container py-5" style="width:60%;">
+<form method="post" action="">
+{% csrf_token %}
+  <div class="form-group">
+    <center><h1> Enter Webite URL</h1></center>
+    <input type="text" class="form-control"  name="web_tech" placeholder="Enter Webite URL" required>
+  </div>
+  <center>
+  <button type="submit" class="btn login_btn">Fetch</button>
+  </center>
+</div>
+ 
+<div class="container" style="width:60%; margin-bottom:50px">
+
+{% if check_website %}
+<h2> {{web_technology}} is Built with </h2>
+    <table class="d" >
+
+ {% for key,value in check_website.items %}
+    <tr>
+    <td> <h4>{{ key.title }}</h4></td><td><h4>{{ value|join:"," }}</h4></td> 
+    </tr>
+ {% endfor %}
+    </table>
+
+{% endif %}
+
+</div>
+
+{% endblock body %}

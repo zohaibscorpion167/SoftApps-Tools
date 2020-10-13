@@ -56,6 +56,9 @@
      <li class="nav-item">
         <a class="nav-link {% if request.path == '/pdf_to_txt' %}active{% endif %}" href="/pdf_to_txt">PDF to Txt</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/web_tech' %}active{% endif %}" href="/web_tech">Website Technology </a>
+      </li>
     <li class="nav-item">
         <a class="nav-link {% if request.path == '/contact' %}active{% endif %}" href="/contact">Contact us</a>
       </li>
@@ -70,8 +73,8 @@
         <a class="nav-link dropdown-toggle" style="color:white;" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            Welcome {{request.user}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/logout">Logout</a>
+        <div class="dropdown-menu login_btn" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item " href="/logout">Logout</a>
         </div>
       </li>
   {% else %}

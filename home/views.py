@@ -17,6 +17,7 @@ import re
 import json
 from urllib.request import urlopen
 import whois
+import builtwith
 from PIL import Image
 from PyPDF2 import PdfFileReader, PdfFileWriter
 import pytesseract
@@ -193,6 +194,19 @@ def handlelogin(request):
 def handlelogout(request):
     logout(request)
     return redirect('login')
+
+
+
+def web_tech(request):
+    if request.method == "POST":
+        web_technology = request.POST['web_tech']
+        check_website = builtwith.parse(web_technology)
+        # for key,value in check_website.items():
+        #     result_web = key+':'+','.join(value) 
+        return render(request, 'web_tech.html',{"check_website":check_website,'web_technology':web_technology})
+                    
+    return render(request, 'web_tech.html')
+    
 
 
         
