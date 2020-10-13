@@ -21,7 +21,7 @@ import builtwith
 from PIL import Image
 from PyPDF2 import PdfFileReader, PdfFileWriter
 import pytesseract
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\AA\\Desktop\\Django\\zohaib\static\\tesseract\\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'https://softappstool.herokuapp.com//static//tesseract//tesseract.exe'
 
 
 
